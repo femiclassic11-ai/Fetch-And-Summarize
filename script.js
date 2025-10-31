@@ -10,12 +10,11 @@ async function fetchUsersAndSummarize() {
       return response.json();
     })
 
-    // Chain 2: Data processing
+    //Data processing
     .then((users) => {
       users
         // Filter: only users whose city starts with 'C'
-        .filter((user) => user.address.city.startsWith("C"))
-
+        .filter((user) => user.address.city.startsWith("R"))
         // Map
         .map((user) => ({
           id: user.id,
