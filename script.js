@@ -13,16 +13,16 @@ async function fetchUsersAndSummarize() {
     //Data processing
     .then((users) => {
       users
-        // Filter: only users whose city starts with 'C'
+        // only users whose city starts with 'C'
         .filter((user) => user.address.city.startsWith("R"))
-        // Map
+        //Map
         .map((user) => ({
           id: user.id,
           name: user.name,
           companyName: user.company.name,
         }))
 
-        // forEach: display each result
+        // forEach
         .forEach((u) => {
           console.log(`User ID ${u.id}: ${u.name} works at ${u.companyName}`);
         });
