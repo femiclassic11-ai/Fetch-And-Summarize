@@ -2,7 +2,7 @@
 async function fetchUsersAndSummarize() {
   fetch("https://jsonplaceholder.typicode.com/users")
 
-    // Response check
+    // check if response is okay
     .then((response) => {
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
@@ -15,7 +15,7 @@ async function fetchUsersAndSummarize() {
       users
         // only users whose city starts with 'C'
         .filter((user) => user.address.city.startsWith("R"))
-        //Map
+        //Map (to construct the result)
         .map((user) => ({
           id: user.id,
           name: user.name,
@@ -37,9 +37,9 @@ async function fetchUsersAndSummarize() {
 
 fetchUsersAndSummarize();
 
-// ✅ Error test function
+//  Error test function
 function testError() {
-  fetch("https://jsonplaceholder.typicode.com/u5ers") // invalid URL
+  fetch("https://jsonplaceholder.typicode.com/u5ers") 
     .then((response) => {
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
@@ -52,5 +52,5 @@ function testError() {
     });
 }
 
-//  Call the error test
+
 testError();
